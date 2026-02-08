@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chocolate Day 🍫</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#8b4513,#d2b48c);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Georgia',serif;
+  overflow:hidden;
+}
+.container{
+  width:95%;
+  max-width:420px;
+  text-align:center;
+  color:#fff;
+}
+.hidden{display:none;}
+button{
+  padding:12px 26px;
+  border-radius:30px;
+  border:none;
+  font-size:16px;
+  margin:8px;
+  cursor:pointer;
+  background:#4e2a1e;
+  color:white;
+}
+.back{
+  background:transparent;
+  color:white;
+  font-size:14px;
+}
+
+/* BOUNCE */
+.bounce{
+  animation:bounce 1.4s infinite;
+  font-size:26px;
+  font-weight:bold;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.95);
+  color:#4e2a1e;
+  padding:22px;
+  border-radius:18px;
+  font-size:15px;
+  line-height:1.8;
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+}
+
+.gif{
+  width:100%;
+  border-radius:18px;
+  margin-top:12px;
+}
+.highlight{
+  font-weight:bold;
+  color:#8b0000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home">
+  <div style="font-size:40px;">🍫</div>
+  <p style="font-size:18px;">I have something sweet for you…</p>
+  <button onclick="goWish()">Open 🍫</button>
+</div>
+
+<!-- WISH -->
+<div id="wish" class="hidden">
+  <div class="bounce">
+    Happyy chocolatee dayy boo boo 🤎❤️
+  </div>
+  <button onclick="goSweet()">Next 🍫</button><br>
+  <button class="back" onclick="goHome()">← Back</button>
+</div>
+
+<!-- SWEET MESSAGE -->
+<div id="sweet" class="hidden">
+  <div class="card">
+    Just like chocolate, you make life feel a little richer
+    and a lot warmer.  
+    You melt my worries, sweeten my days,
+    and somehow make even the simplest moments special.
+
+    <br><br>
+
+    Being with you feels comforting,
+    like my favourite flavour I never get tired of 🍫
+  </div>
+  <button onclick="goFinal()">One more 🍩</button><br>
+  <button class="back" onclick="goWish()">← Back</button>
+</div>
+
+<!-- FINAL MESSAGE -->
+<div id="final" class="hidden">
+  <div class="card">
+    Chocolate is loved not just for its sweetness,
+    but for the way it makes people feel —  
+    warm, comforted, and quietly happy.
+
+    <br><br>
+
+    That’s exactly what you are to me.
+    Not loud, not overwhelming,
+    just deeply comforting and always enough.
+
+    <br><br>
+
+    You are my favourite kind of sweetness,
+    and I’m grateful for you every single day 🤎🍫
+  </div>
+
+  <button onclick="goWarning()">Sweet warning ⚠️🍫</button><br>
+  <button class="back" onclick="goSweet()">← Back</button>
+</div>
+
+<!-- SWEET WARNING -->
+<div id="warning" class="hidden">
+  <div class="card">
+    Oyy hello 😏  
+    idhi chudagane  
+    <b>Happy Chocolate Day</b> ani cheppadame kaadhu,  
+    naaku pedha chocolate konivvali  
+    ardham aindhaa 🤨  
+
+    <br><br>
+
+    Heee nuv isthavle  
+    naaku thelsu pichiiiiiii ❤️
+
+    <br><br><hr><br>
+
+    Annattu chocolate ante gurthochindhi…  
+    nuv naaku first chocolate eppudu ichavo thelsaa?  
+    gurthundhaa…!!!  
+
+    <br><br>
+
+    Saree, ekkuva aalochinchakandi sirr —  
+    nene cheppestha 😌  
+
+    <br><br>
+
+    <span class="highlight">March 11th, Friday — 7:52 AM ❤️</span>  
+
+    <br><br>
+
+    Appati nundi chocolate ante  
+    nuvvu gurthosthav.
+  </div>
+
+  <button onclick="goDark()">Short dark message 🖤🍫</button><br>
+  <button class="back" onclick="goFinal()">← Back</button>
+</div>
+
+<!-- DARK MESSAGE -->
+<div id="dark" class="hidden">
+  <div class="card">
+    Dark chocolate laanti nuvvu —  
+    slow ga melt ayyi, mind motham capture chesthav.
+
+    <br><br>
+
+    Sweet chocolates andharu istaru,
+    kaani dark chocolate taste ardham cheyyinchindhi nuvvu.
+    Nuv naaku ichina first chocolate kuda dark ee.
+
+    <br><br>
+
+    Ee madhya naa mind full intense —
+    thoughts wild ga unnayi,
+    imagination motham nee chuttu tiruguthondi.
+
+    <br><br>
+
+    Nuv daggariki vasthe,
+    control ane word meaning marchipotha.
+    That’s the effect you have on me 🖤💋
+  </div>
+
+  <button onclick="goAction()">Thoughts in action 🍫</button><br>
+  <button class="back" onclick="goWarning()">← Back</button>
+</div>
+
+<!-- FINAL GIF -->
+<div id="action" class="hidden">
+  <img class="gif"
+    src="https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif"
+    alt="cute chocolate gif">
+  <button class="back" onclick="goDark()">← Back</button>
+</div>
+
+</div>
+
+<script>
+function hideAll(){
+  document.querySelectorAll(".container > div")
+    .forEach(d=>d.classList.add("hidden"));
+}
+function goHome(){hideAll();document.getElementById("home").classList.remove("hidden");}
+function goWish(){hideAll();document.getElementById("wish").classList.remove("hidden");}
+function goSweet(){hideAll();document.getElementById("sweet").classList.remove("hidden");}
+function goFinal(){hideAll();document.getElementById("final").classList.remove("hidden");}
+function goWarning(){hideAll();document.getElementById("warning").classList.remove("hidden");}
+function goDark(){hideAll();document.getElementById("dark").classList.remove("hidden");}
+function goAction(){hideAll();document.getElementById("action").classList.remove("hidden");}
+</script>
+
+</body>
+</html>
